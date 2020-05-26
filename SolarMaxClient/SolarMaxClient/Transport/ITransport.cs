@@ -10,5 +10,8 @@ namespace SolarMaxClient.Transport
         CommunicationResult Disconnect();
         CommunicationResult Send(byte[] bytes);
         CommunicationResult Receive(out byte[] bytes);
+
+        CommunicationResult Send(string message);
+        CommunicationResult Receive(out string message);
     }
 }

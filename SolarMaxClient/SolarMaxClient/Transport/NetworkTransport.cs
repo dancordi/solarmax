@@ -14,17 +14,20 @@ namespace SolarMaxClient.Transport
         public TimeSpan ConnectTimeout { get; set; }
         public TimeSpan SendTimeout { get; set; }
         public TimeSpan ReceiveTimeout { get; set; }
+        public Encoding Encoding { get; set; }
 
         public NetworkTransport(string ipAddess, int tcpPort,
                                TimeSpan connectTimeout,
                                TimeSpan sendTimeout,
-                               TimeSpan receiveTimeout)
+                               TimeSpan receiveTimeout,
+                               Encoding encoding)
         {
             this.IpAddess = ipAddess;
             this.TcpPort = tcpPort;
             this.ConnectTimeout = connectTimeout;
             this.SendTimeout = sendTimeout;
             this.ReceiveTimeout = receiveTimeout;
+            this.Encoding = encoding;
         }
 
         public void Dispose()
@@ -195,6 +198,23 @@ namespace SolarMaxClient.Transport
             {
                 return CommunicationResult.KO_Exception;
             }
+        }
+
+        public CommunicationResult Send(string message)
+        {
+            byte[] messageBytes = Encoding.GetBytes(message);
+            return Send(messageBytes);
+        }
+
+        public CommunicationResult Receive(out string message)
+        {
+            message = null;
+            var res = Receive(out byte[] rec);
+            if (res == CommunicationResult.OK)
+            {
+                message = Encoding.GetString(rec);
+            }
+            return res;
         }
     }
 }

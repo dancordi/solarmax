@@ -1,6 +1,7 @@
 ﻿using SolarMaxClient;
 using SolarMaxClient.Transport;
 using System;
+using System.Text;
 
 namespace SolarMaxClientConsoleApp
 {
@@ -8,9 +9,14 @@ namespace SolarMaxClientConsoleApp
     {
         static void Main(string[] args)
         {
-            ITransport transport = new NetworkTransport("192.168.1.41", 1234, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10));
+            ITransport transport = new NetworkTransport("192.168.0.151", 12345, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10), Encoding.UTF8);
             ISolarMaxClient solarMaxClient = new SolarMaxClient.SolarMaxClient(transport);
-            bool resGetVersion = solarMaxClient.GetVersion(out string version);
+            var getStatusResult = solarMaxClient.GetStatus();
+            if (getStatusResult.Result)
+            {
+                Console.WriteLine($"status={getStatusResult.Status}");
+            }
+            //var energyReportResult = solarMaxClient.GetEnergyReport();
         }
     }
 }

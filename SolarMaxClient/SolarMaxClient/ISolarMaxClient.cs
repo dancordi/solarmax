@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SolarMaxClient.Result;
+using System;
 
 namespace SolarMaxClient
 {
     public interface ISolarMaxClient
     {
-        bool GetVersion(out string version);
+        GetStatusResult GetStatus();
+        GetEnergyReportResult GetEnergyReport();
+
 
     }
 }
