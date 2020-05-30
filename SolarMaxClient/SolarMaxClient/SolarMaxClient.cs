@@ -19,7 +19,44 @@ namespace SolarMaxClient
 
         public GetEnergyReportResult GetEnergyReport()
         {
-            throw new NotImplementedException();
+            GetEnergyReportResult energyReport = null;
+            //connect
+            if (this.Transport.Connect() == CommunicationResult.OK)
+            {
+                energyReport = new GetEnergyReportResult();
+                var solarMaxRequest = new SolarMaxRequest(new SolarMaxCommand[] { new SolarMaxCommand(SolarMaxCommandEnum.P_AC) }.ToList());
+                var resSend = this.Transport.Send(solarMaxRequest.ToString());
+                if (resSend == CommunicationResult.OK)
+                {
+                    //receive
+                    var resRec = this.Transport.Receive(out string rec);
+                    if (resRec == CommunicationResult.OK)
+                    {
+                        SolarMaxResponse solarMaxResponse = new SolarMaxResponse(rec);
+                        var listSolarMaxCommand = solarMaxResponse.Parse();
+                        if (listSolarMaxCommand.Count > 0)
+                        {
+                            //
+                            energyReport.PAC = int.Parse(listSolarMaxCommand[0].Value, System.Globalization.NumberStyles.HexNumber) / 2;
+                            energyReport.Result = true;
+                        }
+                    }
+                    else
+                    {
+                        energyReport.Result = false;
+                        energyReport.ErrorDescription = "Unable to receive the response";
+                    }
+                }
+                else
+                {
+                    energyReport.Result = false;
+                    energyReport.ErrorDescription = "Unable to send the request";
+                }
+                //disconnect
+                this.Transport.Disconnect();
+                return energyReport;
+            }
+            return new GetEnergyReportResult() { Result = false, ErrorDescription = "Unable to connect" };
         }
 
         public GetStatusResult GetStatus()
