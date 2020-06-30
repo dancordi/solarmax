@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClient", "SolarMaxClient\SolarMaxClient.csproj", "{CFCD40E2-C559-4C35-9D65-424119E05145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxClientConsoleApp", "SolarMaxClientConsoleApp\SolarMaxClientConsoleApp.csproj", "{0CE3217C-C6AD-473B-B2A5-E2804620DD37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClientConsoleApp", "SolarMaxClientConsoleApp\SolarMaxClientConsoleApp.csproj", "{0CE3217C-C6AD-473B-B2A5-E2804620DD37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxUpdater", "..\SolarMaxUpdater\SolarMaxUpdater.csproj", "{750967F1-71E9-4589-B548-A761E098E0EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxRESTApiClient", "..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj", "{1074DED0-84D3-4358-B3BD-94E4D0860390}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{0CE3217C-C6AD-473B-B2A5-E2804620DD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CE3217C-C6AD-473B-B2A5-E2804620DD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CE3217C-C6AD-473B-B2A5-E2804620DD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750967F1-71E9-4589-B548-A761E098E0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750967F1-71E9-4589-B548-A761E098E0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750967F1-71E9-4589-B548-A761E098E0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750967F1-71E9-4589-B548-A761E098E0EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1074DED0-84D3-4358-B3BD-94E4D0860390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1074DED0-84D3-4358-B3BD-94E4D0860390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1074DED0-84D3-4358-B3BD-94E4D0860390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1074DED0-84D3-4358-B3BD-94E4D0860390}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

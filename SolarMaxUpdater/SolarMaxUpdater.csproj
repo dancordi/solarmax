@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>1.0.0.2</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SolarMaxClient\SolarMaxClient\SolarMaxClient.csproj" />
+    <ProjectReference Include="..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj" />
+  </ItemGroup>
+
+</Project>
