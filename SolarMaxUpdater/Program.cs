@@ -20,7 +20,7 @@ namespace SolarMaxUpdater
             int lastByte = 150;
             for (int i = 1; i <= 2; i++)
             {
-                string baseIpAddress = $"192.168.0.{lastByte++}";
+                string baseIpAddress = $"192.168.1.{lastByte++}";
 
                 ITransport transport = new NetworkTransport(baseIpAddress, 12345, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10), Encoding.UTF8);
                 ISolarMaxClient solarMaxClient = new SolarMaxClient.SolarMaxClient(transport);
