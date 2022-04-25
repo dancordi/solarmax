@@ -11,6 +11,15 @@ namespace SolarMaxUpdater
     {
         static void Main(string[] args)
         {
+            if (args != null && args.Length > 0)
+            {
+                if (args[0] == "--version")
+                {
+                    var assembly = System.Reflection.Assembly.GetExecutingAssembly().GetName();
+                    Console.WriteLine($"{assembly.Name} v. {assembly.Version}");
+                    return;
+                }
+            }
             ISolarMaxRESTApiClient RESTApiClient = new SolarMaxRESTApiClient.SolarMaxRESTApiClient("https://solarpacfunction20200628145749.azurewebsites.net");
             var addSolarPacItemFunction = new SolarMaxRESTApiClient.Models.AzureFunction()
             {
@@ -24,27 +33,28 @@ namespace SolarMaxUpdater
 
                 ITransport transport = new NetworkTransport(baseIpAddress, 12345, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10), Encoding.UTF8);
                 ISolarMaxClient solarMaxClient = new SolarMaxClient.SolarMaxClient(transport);
-                Console.WriteLine($"Reading the PAC from {baseIpAddress} ...");
+                System.Diagnostics.Debug.WriteLine($"Reading the PAC from {baseIpAddress} ...");
                 var energyReportResult = solarMaxClient.GetEnergyReport();
                 if (energyReportResult.Result)
                 {
-                    Console.WriteLine($"Posting the PAC {energyReportResult.PAC} for invert {i} ...");
+                    System.Diagnostics.Debug.WriteLine($"Posting the PAC {energyReportResult.PAC} for invert {i} ...");
 
-                    var solarPacItem = new SolarMaxRESTApiClient.Models.SolarPacItem() {
-                        inverterId = i, pac = energyReportResult.PAC
+                    var solarPacItem = new SolarMaxRESTApiClient.Models.SolarPacItem()
+                    {
+                        inverterId = i,
+                        pac = energyReportResult.PAC
                     };
                     var resAdd = RESTApiClient.AddSolarPacItem(addSolarPacItemFunction, solarPacItem);
                     if (resAdd)
                     {
-                        Console.WriteLine($"PAC has been posted done successfully");
+                        System.Diagnostics.Debug.WriteLine($"PAC has been posted done successfully");
                     }
                     else
                     {
-                        Console.WriteLine($"PAC has *NOT* been posted");
+                        System.Diagnostics.Debug.WriteLine($"PAC has *NOT* been posted");
                     }
                 }
             }
-            Thread.Sleep(5000);
         }
     }
 }

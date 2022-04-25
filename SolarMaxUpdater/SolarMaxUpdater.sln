@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxUpdater", "SolarMaxUpdater.csproj", "{33DB5067-03AC-41B3-B866-EE002E990E15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClient", "..\SolarMaxClient\SolarMaxClient\SolarMaxClient.csproj", "{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxRESTApiClient", "..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj", "{25E511A2-AF57-43DB-87AA-6303F2F7091F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33DB5067-03AC-41B3-B866-EE002E990E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33DB5067-03AC-41B3-B866-EE002E990E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33DB5067-03AC-41B3-B866-EE002E990E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33DB5067-03AC-41B3-B866-EE002E990E15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61149908-8198-4DDC-9109-8956893D3B83}
+	EndGlobalSection
+EndGlobal
