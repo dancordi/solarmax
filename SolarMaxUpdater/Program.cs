@@ -3,7 +3,6 @@ using SolarMaxClient.Transport;
 using SolarMaxRESTApiClient;
 using System;
 using System.Text;
-using System.Threading;
 
 namespace SolarMaxUpdater
 {
@@ -26,6 +25,7 @@ namespace SolarMaxUpdater
                 Url = "api/AddSolarPacItem?code=sZDIHm0GLWIqROPQAUpHYqRR0QY2RDXxDlLVFjA3inqLkUNjUQAVLg==",
                 Key = ""
             };
+
             int lastByte = 150;
             for (int i = 1; i <= 2; i++)
             {
@@ -33,11 +33,11 @@ namespace SolarMaxUpdater
 
                 ITransport transport = new NetworkTransport(baseIpAddress, 12345, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10), Encoding.UTF8);
                 ISolarMaxClient solarMaxClient = new SolarMaxClient.SolarMaxClient(transport);
-                System.Diagnostics.Debug.WriteLine($"Reading the PAC from {baseIpAddress} ...");
+                Console.WriteLine($"Reading the PAC from {baseIpAddress} ...");
                 var energyReportResult = solarMaxClient.GetEnergyReport();
                 if (energyReportResult.Result)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Posting the PAC {energyReportResult.PAC} for invert {i} ...");
+                    Console.WriteLine($"Posting the PAC {energyReportResult.PAC} for invert {i} ...");
 
                     var solarPacItem = new SolarMaxRESTApiClient.Models.SolarPacItem()
                     {
@@ -47,12 +47,16 @@ namespace SolarMaxUpdater
                     var resAdd = RESTApiClient.AddSolarPacItem(addSolarPacItemFunction, solarPacItem);
                     if (resAdd)
                     {
-                        System.Diagnostics.Debug.WriteLine($"PAC has been posted done successfully");
+                        Console.WriteLine($"PAC has been posted done successfully");
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine($"PAC has *NOT* been posted");
+                        Console.WriteLine($"PAC has *NOT* been posted");
                     }
+                }
+                else
+                {
+                    Console.WriteLine($"Unable to read the PAC from {baseIpAddress}. Reason:{energyReportResult.ErrorDescription}");
                 }
             }
         }
