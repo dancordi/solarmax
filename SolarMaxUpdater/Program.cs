@@ -6,12 +6,13 @@ using SolarMaxUpdater.Settings;
 using System;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SolarMaxUpdater
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // Build configuration
             var configuration = new ConfigurationBuilder()
@@ -34,7 +35,7 @@ namespace SolarMaxUpdater
                 }
             }
 
-            ISolarMaxRESTApiClient RESTApiClient = new SolarMaxRESTApiClient.SolarMaxRESTApiClient(appSettings.AzureFunctions.BaseUrl);
+            ISolarMaxRestApiClient RESTApiClient = new SolarMaxRESTApiClient.SolarMaxRestApiClient(appSettings.AzureFunctions.BaseUrl);
             var addSolarPacItemFunction = new SolarMaxRESTApiClient.Models.AzureFunction()
             {
                 Url = $"api/AddSolarPacItem?code={appSettings.AzureFunctions.Code}",
@@ -56,7 +57,7 @@ namespace SolarMaxUpdater
                         inverterId = inverter.Id,
                         pac = energyReportResult.PAC
                     };
-                    var resAdd = RESTApiClient.AddSolarPacItem(addSolarPacItemFunction, solarPacItem);
+                    var resAdd = await RESTApiClient.AddSolarPacItemAsync(addSolarPacItemFunction, solarPacItem);
                     if (resAdd)
                     {
                         Console.WriteLine($"PAC has been posted successfully");
