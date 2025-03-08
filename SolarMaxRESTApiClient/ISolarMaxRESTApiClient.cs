@@ -1,11 +1,12 @@
 ﻿using SolarMaxRESTApiClient.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace SolarMaxRESTApiClient
 {
-    public interface ISolarMaxRESTApiClient
+    public interface ISolarMaxRestApiClient
     {
-        bool AddSolarPacItem(AzureFunction function, SolarPacItem solarPacItem);
-        SolarPacItem GetLastSolarPacItem(AzureFunction function, int inverterId);
+        Task<bool> AddSolarPacItemAsync(AzureFunction function, SolarPacItem solarPacItem);
+        Task<SolarPacItem> GetLastSolarPacItemAsync(AzureFunction function, int inverterId);
     }
 }

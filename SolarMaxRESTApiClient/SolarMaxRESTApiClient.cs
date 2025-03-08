@@ -2,15 +2,17 @@
 using SolarMaxRESTApiClient.Models;
 using System;
 using System.Net;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 
 namespace SolarMaxRESTApiClient
 {
-    public class SolarMaxRESTApiClient : ISolarMaxRESTApiClient
+    public class SolarMaxRestApiClient : ISolarMaxRestApiClient
     {
         IRestClient _RestClient { get; set; }
         System.Text.Json.JsonSerializerOptions _JsonSerializerOptions { get; set; }
 
-        public SolarMaxRESTApiClient(string baseUrl)
+        public SolarMaxRestApiClient(string baseUrl)
         {
             //https://restsharp.dev/get-help/faq.html#connection-closed-with-ssl
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
@@ -23,10 +25,9 @@ namespace SolarMaxRESTApiClient
             };
         }
 
-        public bool AddSolarPacItem(AzureFunction function, SolarPacItem solarPacItem)
+        public async Task<bool> AddSolarPacItemAsync(AzureFunction function, SolarPacItem solarPacItem)
         {
-            var restRequest = new RestRequest(Method.POST);
-            restRequest.Resource = $"/{function.Url}";
+            var restRequest = new RestRequest($"/{function.Url}", Method.Post);
             JsonObject jsonObj = new JsonObject();
             jsonObj.Add("InverterId", solarPacItem.inverterId);
             jsonObj.Add("Pac", solarPacItem.pac);
@@ -35,7 +36,7 @@ namespace SolarMaxRESTApiClient
             restRequest.AddParameter("application/json; charset=utf-8", jsonPayload, ParameterType.RequestBody);
 
             //invio la richiesta
-            var resultRestRequest = _RestClient.Execute(restRequest);
+            var resultRestRequest = await _RestClient.ExecuteAsync(restRequest);
 
             //gestione del response
             if (resultRestRequest.StatusCode == System.Net.HttpStatusCode.OK)
@@ -47,10 +48,9 @@ namespace SolarMaxRESTApiClient
                 return false;
             }
         }
-        public SolarPacItem GetLastSolarPacItem(AzureFunction function, int inverterId)
+        public async Task<SolarPacItem> GetLastSolarPacItemAsync(AzureFunction function, int inverterId)
         {
-            var restRequest = new RestRequest(Method.POST);
-            restRequest.Resource = $"/{function.Url}";
+            var restRequest = new RestRequest($"/{function.Url}", Method.Post);
             JsonObject jsonObj = new JsonObject();
             jsonObj.Add("InverterId", inverterId);
             restRequest.RequestFormat = DataFormat.Json;
@@ -58,7 +58,7 @@ namespace SolarMaxRESTApiClient
             restRequest.AddParameter("application/json; charset=utf-8", jsonPayload, ParameterType.RequestBody);
 
             //invio la richiesta
-            var resultRestRequest = _RestClient.Execute(restRequest);
+            var resultRestRequest = await _RestClient.ExecuteAsync(restRequest);
 
             //gestione del response
             if (resultRestRequest.StatusCode == System.Net.HttpStatusCode.OK)
