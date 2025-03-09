@@ -32,36 +32,26 @@ namespace SolarMaxRESTApiClient
             jsonObj.Add("InverterId", solarPacItem.inverterId);
             jsonObj.Add("Pac", solarPacItem.pac);
             restRequest.RequestFormat = DataFormat.Json;
-            string jsonPayload = System.Text.Json.JsonSerializer.Serialize(jsonObj, _JsonSerializerOptions);
-            restRequest.AddParameter("application/json; charset=utf-8", jsonPayload, ParameterType.RequestBody);
+            restRequest.AddJsonBody(jsonObj);
 
-            //invio la richiesta
             var resultRestRequest = await _RestClient.ExecuteAsync(restRequest);
 
-            //gestione del response
-            if (resultRestRequest.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return resultRestRequest.IsSuccessful;
         }
+
+
         public async Task<SolarPacItem> GetLastSolarPacItemAsync(AzureFunction function, int inverterId)
         {
             var restRequest = new RestRequest($"/{function.Url}", Method.Post);
             JsonObject jsonObj = new JsonObject();
             jsonObj.Add("InverterId", inverterId);
             restRequest.RequestFormat = DataFormat.Json;
-            string jsonPayload = System.Text.Json.JsonSerializer.Serialize(jsonObj, _JsonSerializerOptions);
-            restRequest.AddParameter("application/json; charset=utf-8", jsonPayload, ParameterType.RequestBody);
+            restRequest.AddJsonBody(jsonObj);
 
-            //invio la richiesta
             var resultRestRequest = await _RestClient.ExecuteAsync(restRequest);
 
             //gestione del response
-            if (resultRestRequest.StatusCode == System.Net.HttpStatusCode.OK)
+            if (resultRestRequest.IsSuccessful)
             {
                 if (string.IsNullOrWhiteSpace(resultRestRequest.Content))
                 {

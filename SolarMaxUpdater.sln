@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxUpdater", "SolarMaxUpdater.csproj", "{33DB5067-03AC-41B3-B866-EE002E990E15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxUpdater", ".\SolarMaxUpdater\SolarMaxUpdater.csproj", "{33DB5067-03AC-41B3-B866-EE002E990E15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClient", "..\SolarMaxClient\SolarMaxClient\SolarMaxClient.csproj", "{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClient", ".\SolarMaxClient\SolarMaxClient\SolarMaxClient.csproj", "{AE6C9A5A-FA92-421B-9322-6D7D2A05BB52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxRESTApiClient", "..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj", "{25E511A2-AF57-43DB-87AA-6303F2F7091F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxRESTApiClient", ".\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj", "{25E511A2-AF57-43DB-87AA-6303F2F7091F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxMauiAndroidUpdater", "..\SolarMaxMauiAndroidUpdater\SolarMaxMauiAndroidUpdater.csproj", "{8C658835-BDD9-4A0B-AC95-40191FF5ED84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxMauiAndroidUpdater", ".\SolarMaxMauiAndroidUpdater\SolarMaxMauiAndroidUpdater.csproj", "{8C658835-BDD9-4A0B-AC95-40191FF5ED84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxUpdaterShared", "..\SolarMaxUpdaterShared\SolarMaxUpdaterShared.csproj", "{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxUpdaterShared", ".\SolarMaxUpdaterShared\SolarMaxUpdaterShared.csproj", "{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
