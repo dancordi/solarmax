@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SolarMaxClient\SolarMaxClient\SolarMaxClient.csproj" />
     <ProjectReference Include="..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj" />
+    <ProjectReference Include="..\SolarMaxUpdaterShared\SolarMaxUpdaterShared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
