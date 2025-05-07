@@ -2,7 +2,7 @@
 using SolarMaxClient;
 using SolarMaxClient.Transport;
 using SolarMaxRESTApiClient;
-using SolarMaxUpdater.Settings;
+using SolarMaxUpdaterShared.Settings;
 using System;
 using System.IO;
 using System.Text;

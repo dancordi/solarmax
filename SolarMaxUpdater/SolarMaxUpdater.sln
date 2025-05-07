@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxClient", "..\SolarM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarMaxRESTApiClient", "..\SolarMaxRESTApiClient\SolarMaxRESTApiClient.csproj", "{25E511A2-AF57-43DB-87AA-6303F2F7091F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxMauiAndroidUpdater", "..\SolarMaxMauiAndroidUpdater\SolarMaxMauiAndroidUpdater.csproj", "{8C658835-BDD9-4A0B-AC95-40191FF5ED84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarMaxUpdaterShared", "..\SolarMaxUpdaterShared\SolarMaxUpdaterShared.csproj", "{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,15 @@ Global
 		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25E511A2-AF57-43DB-87AA-6303F2F7091F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C658835-BDD9-4A0B-AC95-40191FF5ED84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C658835-BDD9-4A0B-AC95-40191FF5ED84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C658835-BDD9-4A0B-AC95-40191FF5ED84}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8C658835-BDD9-4A0B-AC95-40191FF5ED84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C658835-BDD9-4A0B-AC95-40191FF5ED84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05D7A7C-E17F-4BDC-9D5A-BD4910EB3A34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
